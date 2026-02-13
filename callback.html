@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickBooks Authorization - Bill Importer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            text-align: center;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success {
+            color: #2ca01c;
+            font-size: 64px;
+            margin: 0;
+        }
+        .loading {
+            color: #0077c5;
+            font-size: 24px;
+        }
+        .error {
+            color: #d9534f;
+            background: #f9d6d5;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .code-box {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            margin: 20px 0;
+            border: 2px solid #ddd;
+        }
+        button {
+            background: #2ca01c;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #248518;
+        }
+        .secondary-btn {
+            background: #6c757d;
+        }
+        .secondary-btn:hover {
+            background: #5a6268;
+        }
+        h2 {
+            color: #333;
+            margin-top: 10px;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0077c5;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="status">
+            <div class="spinner"></div>
+            <div class="loading">Processing authorization...</div>
+        </div>
+    </div>
+
+    <script>
+        // Parse URL parameters from QuickBooks OAuth redirect
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const realmId = urlParams.get('realmId');
+        const state = urlParams.get('state');
+        const error = urlParams.get('error');
+        const errorDescription = urlParams.get('error_description');
+
+        const statusDiv = document.getElementById('status');
+
+        // Handle authorization errors
+        if (error) {
+            showError(`Authorization Failed: ${error}`, errorDescription);
+        } 
+        // Handle successful authorization
+        else if (code && realmId) {
+            sendToDesktopApp(code, realmId, state);
+        } 
+        // Handle missing parameters
+        else {
+            showError('Invalid Response', 'Missing authorization code or company ID from QuickBooks.');
+        }
+
+        /**
+         * Send authorization code to desktop application
+         */
+        function sendToDesktopApp(code, realmId, state) {
+            statusDiv.innerHTML = `
+                <div class="success">✓</div>
+                <h2>Authorization Successful!</h2>
+                <p>Sending credentials to desktop application...</p>
+            `;
+
+            // Try to send to localhost desktop app via POST
+            fetch('http://localhost:8080/oauth-callback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    code: code,
+                    realmId: realmId,
+                    state: state
+                }),
+                mode: 'cors'
+            })
+            .then(response => {
+                if (response.ok) {
+                    showSuccess(realmId);
+                } else {
+                    throw new Error('Desktop app returned error');
+                }
+            })
+            .catch(error => {
+                // Fallback: Desktop app not responding - show manual copy option
+                showManualCopy(code, realmId);
+            });
+        }
+
+        /**
+         * Show success message and auto-close
+         */
+        function showSuccess(realmId) {
+            statusDiv.innerHTML = `
+                <div class="success">✓</div>
+                <h2>Success!</h2>
+                <p>Authorization sent to desktop application.</p>
+                <p><strong>Company ID:</strong> ${realmId}</p>
+                <p style="margin-top: 30px; color: #999;">This window will close automatically...</p>
+            `;
+            
+            // Auto-close after 3 seconds
+            setTimeout(() => {
+                window.close();
+            }, 3000);
+        }
+
+        /**
+         * Show manual copy option if desktop app not responding
+         */
+        function showManualCopy(code, realmId) {
+            statusDiv.innerHTML = `
+                <div class="success">✓</div>
+                <h2>Authorization Successful!</h2>
+                <p style="color: #856404; background: #fff3cd; padding: 10px; border-radius: 5px;">
+                    ⚠️ Desktop app not detected. Please copy the code manually.
+                </p>
+                
+                <h3 style="margin-top: 30px;">Authorization Code:</h3>
+                <div class="code-box" id="codeText">${code}</div>
+                <button onclick="copyCode()">📋 Copy Code</button>
+                
+                <h3 style="margin-top: 30px;">Company ID (Realm ID):</h3>
+                <div class="code-box">${realmId}</div>
+                
+                <p style="margin-top: 30px;">
+                    <strong>Instructions:</strong><br>
+                    1. Copy the authorization code above<br>
+                    2. Paste it into the desktop application<br>
+                    3. The app will complete the authentication
+                </p>
+                
+                <button onclick="window.close()" class="secondary-btn">Close Window</button>
+            `;
+        }
+
+        /**
+         * Show error message
+         */
+        function showError(title, message) {
+            statusDiv.innerHTML = `
+                <div style="color: #d9534f; font-size: 48px;">✗</div>
+                <h2>${title}</h2>
+                <div class="error">
+                    <p>${message || 'An error occurred during authorization.'}</p>
+                </div>
+                <p>Please close this window and try again from the desktop application.</p>
+                <button onclick="window.close()" class="secondary-btn">Close Window</button>
+            `;
+        }
+
+        /**
+         * Copy authorization code to clipboard
+         */
+        function copyCode() {
+            const codeText = document.getElementById('codeText').textContent;
+            navigator.clipboard.writeText(codeText)
+                .then(() => {
+                    alert('✓ Authorization code copied to clipboard!');
+                })
+                .catch(err => {
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = codeText;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        alert('✓ Authorization code copied to clipboard!');
+                    } catch (err) {
+                        alert('Failed to copy. Please select and copy manually.');
+                    }
+                    document.body.removeChild(textArea);
+                });
+        }
+    </script>
+</body>
+</html>
