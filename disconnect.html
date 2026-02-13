@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disconnect Guide - QuickBooks Bill Importer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 { color: #2ca01c; border-bottom: 3px solid #2ca01c; padding-bottom: 10px; }
+        h2 { color: #0077c5; margin-top: 30px; }
+        .method {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2ca01c;
+        }
+        ol { padding-left: 20px; }
+        li { margin: 10px 0; }
+        code { background: #e0e0e0; padding: 2px 6px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>How to Disconnect QuickBooks Bill Importer</h1>
+    
+    <p>You can disconnect the application from your QuickBooks account using either method below:</p>
+    
+    <div class="method">
+        <h2>Method 1: Via QuickBooks Online (Recommended)</h2>
+        <ol>
+            <li>Log into your QuickBooks Online account</li>
+            <li>Click the <strong>⚙ Settings</strong> icon in the top right</li>
+            <li>Select <strong>Apps</strong> from the menu</li>
+            <li>Click <strong>Manage apps</strong></li>
+            <li>Find <strong>QuickBooks Bill Importer</strong> in the list</li>
+            <li>Click <strong>Disconnect</strong></li>
+            <li>Confirm the disconnection</li>
+        </ol>
+        <p><strong>Result:</strong> The application will no longer have access to your QuickBooks data.</p>
+    </div>
+    
+    <div class="method">
+        <h2>Method 2: Delete Local Token File</h2>
+        <ol>
+            <li>Navigate to the application folder on your computer</li>
+            <li>Find the file named: <code>qbo_tokens.json</code></li>
+            <li>Delete this file</li>
+            <li>Restart the application</li>
+        </ol>
+        <p><strong>Result:</strong> The application will show as disconnected and require re-authentication.</p>
+    </div>
+    
+    <div class="method">
+        <h2>Complete Removal</h2>
+        <p>To completely remove the application:</p>
+        <ol>
+            <li>Disconnect using Method 1 above</li>
+            <li>Delete the application folder from your computer</li>
+            <li>Delete these files if they exist:
+                <ul>
+                    <li><code>config.json</code></li>
+                    <li><code>qbo_tokens.json</code></li>
+                    <li><code>quickbooks_importer.log</code></li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+    
+    <div style="background: #fff3cd; padding: 15px; border-radius: 5px; margin-top: 30px;">
+        <strong>Note:</strong> After disconnecting, the application will no longer be able to access your 
+        QuickBooks data. Your Excel files and any data stored locally remain on your computer.
+    </div>
+    
+    <p style="margin-top: 30px; text-align: center;">
+        <a href="index.html" style="color: #2ca01c;">← Back to Home</a>
+    </p>
+</body>
+</html>
