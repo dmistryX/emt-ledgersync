@@ -163,12 +163,17 @@
                 <h2>Success!</h2>
                 <p>Authorization sent to desktop application.</p>
                 <p><strong>Company ID:</strong> ${realmId}</p>
-                <p style="margin-top: 30px; color: #999;">This window will close automatically...</p>
+                <p id="close-msg" style="margin-top: 30px; color: #999;">This window will close automatically...</p>
             `;
-            
+
             // Auto-close after 3 seconds
             setTimeout(() => {
                 window.close();
+                // If window.close() was blocked by the browser, show manual close message
+                setTimeout(() => {
+                    document.getElementById('close-msg').innerHTML =
+                        'You can safely close this tab now.';
+                }, 500);
             }, 3000);
         }
 
