@@ -166,15 +166,12 @@
                 <p id="close-msg" style="margin-top: 30px; color: #999;">This window will close automatically...</p>
             `;
 
-            // Auto-close after 3 seconds
+            // Try to auto-close, fall back to manual message
+            try { window.close(); } catch(e) {}
             setTimeout(() => {
-                window.close();
-                // If window.close() was blocked by the browser, show manual close message
-                setTimeout(() => {
-                    document.getElementById('close-msg').innerHTML =
-                        'You can safely close this tab now.';
-                }, 500);
-            }, 3000);
+                document.getElementById('close-msg').innerHTML =
+                    'You can safely close this tab now.';
+            }, 1000);
         }
 
         /**
