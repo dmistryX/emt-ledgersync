@@ -115,4 +115,3 @@ Project includes branded support pages in `web/`:
 - `openpyxl` (Excel read/write)
 - `ttkbootstrap` + `ttkwidgets` (desktop UI)
 - `cryptography` (token/credential encryption)
-
