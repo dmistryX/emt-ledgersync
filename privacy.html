@@ -1,252 +1,41 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Privacy Policy — QuickBooks Bill Importer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
-  <style>body{background:#f6f8fa;padding:32px} .markdown-body{box-sizing:border-box;max-width:900px;margin:0 auto;background:#fff;padding:48px;border-radius:6px;box-shadow:0 1px 3px rgba(27,31,35,.04)}</style>
+  <title>Privacy Policy - Emendate LedgerSync</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<article class="markdown-body" id="content"></article>
-<script id="md" type="text/plain">
-# Privacy Policy
-
-**Last Updated:** February 12, 2026
-
-## Introduction
-
-This Privacy Policy describes how the QuickBooks Bill Importer application ("Application", "we", "us", or "our") handles your information.
-
-## Important: Desktop Application
-
-This is a **desktop application** that runs entirely on your local machine. We do not operate any servers or cloud services that collect, store, or process your data.
-
-## Information We Do NOT Collect
-
-We **DO NOT** collect, store, transmit, or have access to:
-- Your personal information
-- Your QuickBooks credentials
-- Your financial data
-- Your Excel files
-- Your bill information
-- Your vendor information
-- Your usage statistics
-- Your IP address
-- Any analytics or telemetry data
-
-## How the Application Works
-
-### Local Storage Only
-
-All data is stored locally on your computer:
-
-1. **Configuration File** (`config.json`)
-   - Stored on your computer only
-   - Contains QuickBooks API credentials (Client ID/Secret)
-   - Contains company settings
-   - Never transmitted to any server (except QuickBooks)
-
-2. **Token File** (`qbo_tokens.json`)
-   - Stored on your computer only
-   - Contains OAuth access/refresh tokens
-   - Used to authenticate with QuickBooks API
-   - Never transmitted to third parties
-
-3. **Excel Files**
-   - Remain on your computer
-   - Never uploaded anywhere except data sent to QuickBooks
-   - You control what data is imported
-
-4. **Log Files** (`quickbooks_importer.log`)
-   - Stored on your computer only
-   - Contains application events and errors
-   - Not transmitted anywhere
-
-### Data Flow
-
-```
-Your Computer                QuickBooks (Intuit)
-    |                              |
-    |-- Authentication ----------->|
-    |<- OAuth Tokens --------------|
-    |                              |
-    |-- Import Bill Data --------->|
-    |<- Success/Error Response ----|
-    |                              |
-   You                         Intuit
-  Control                   Controls
-```
-
-**No intermediate servers. Direct communication only.**
-
-## Third-Party Services
-
-### QuickBooks Online (Intuit)
-
-The Application integrates with QuickBooks Online using Intuit's official APIs.
-
-**What we send to QuickBooks:**
-- Only the bill data you explicitly choose to import
-- Authentication requests during OAuth flow
-
-**Intuit's Privacy Policy:**
-- Your QuickBooks data is subject to [Intuit's Privacy Policy](https://www.intuit.com/privacy/)
-- We do not control Intuit's data practices
-- Review Intuit's policy for details on how they handle your data
-
-**Your Control:**
-- You decide what data to import
-- You can revoke access anytime in QuickBooks settings
-- You can disconnect the application anytime
-
-### No Other Third Parties
-
-We do NOT integrate with or send data to:
-- Analytics services
-- Advertising networks
-- Social media platforms
-- Cloud storage services
-- Any other third-party services
-
-## Data Security
-
-### Your Responsibilities
-
-Since all data is stored locally:
-
-1. **Protect Your Computer**
-   - Use strong passwords
-   - Keep antivirus updated
-   - Use firewall protection
-   - Lock computer when away
-
-2. **Protect Configuration Files**
-   - Keep `config.json` secure
-   - Don't share credentials
-   - Set proper file permissions
-   - Don't commit to public repositories
-
-3. **Backup Your Data**
-   - Regularly backup Excel files
-   - Backup configuration if needed
-   - Maintain backups securely
-
-### OAuth Security
-
-The Application uses OAuth 2.0 for QuickBooks authentication:
-- Your QuickBooks password is NEVER stored in the Application
-- You authenticate directly with QuickBooks (Intuit)
-- Application receives only access tokens
-- Tokens stored locally and encrypted by OS
-
-## Children's Privacy
-
-The Application is not intended for use by children under 13. We do not knowingly collect information from children.
-
-## Data Retention
-
-### Local Data
-- All data remains on your computer
-- You control retention
-- Delete files to remove data
-
-### QuickBooks Data
-- Data imported to QuickBooks is subject to Intuit's retention policies
-- Refer to Intuit's Privacy Policy
-
-## Your Rights
-
-You have complete control over your data:
-
-### Access
-- All your data is stored locally on your computer
-- Access files anytime
-
-### Delete
-- Delete Application to remove all local data
-- Delete `config.json` to remove configuration
-- Delete `qbo_tokens.json` to remove tokens
-- Revoke QuickBooks access in QuickBooks settings
-
-### Export
-- Your Excel files are already in exportable format
-- Configuration files are JSON (human-readable)
-
-### Portability
-- All data stored in standard formats
-- Excel files: `.xlsx` format
-- Configuration: JSON format
-- Easy to move between computers
-
-## Changes to This Policy
-
-We may update this Privacy Policy from time to time. Changes will be indicated by updating the "Last Updated" date.
-
-Continued use of the Application after changes constitutes acceptance of the updated Privacy Policy.
-
-## Compliance
-
-### GDPR (EU Users)
-Since we don't collect any personal data, GDPR data processing requirements don't apply to us. However:
-- You control all your data
-- Data stays on your device
-- You can delete all data anytime
-
-### CCPA (California Users)
-We do not sell personal information because we don't collect any personal information.
-
-### Other Jurisdictions
-Since the Application doesn't collect data, most privacy regulations don't apply. Your data privacy is protected by the fact that data never leaves your control except when you explicitly send it to QuickBooks.
-
-## Security Incidents
-
-Since we don't operate servers or collect data:
-- No centralized data breach risk
-- Your data security depends on your computer security
-- Protect your computer and credentials
-
-## Open Source
-
-The Application may be distributed as open source. Review the source code to verify privacy claims.
-
-## Contact Information
-
-For questions about this Privacy Policy:
-- Review the source code (if open source)
-- Check documentation included with Application
-- Contact: [Your contact method]
-
-## Transparency
-
-We believe in transparency:
-- Source code available for review (if open source)
-- No hidden data collection
-- No tracking or analytics
-- No ads or third-party scripts
-- Pure desktop application
-
-## Summary
-
-**What this means for you:**
-- ✅ Complete data privacy
-- ✅ All data stays on your computer
-- ✅ No tracking or analytics
-- ✅ Direct API communication only
-- ✅ You control everything
-- ✅ No cloud services
-- ✅ No data collection
-
-**Your data never passes through our servers because we don't have any servers.**
-
----
-
-**© 2026 Emendate QB Bill Importer. All rights reserved.**
-</script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
-  const md = document.getElementById('md').textContent;
-  document.getElementById('content').innerHTML = marked.parse(md);
-</script>
+<body class="page-privacy">
+  <div class="wrap">
+    <header class="top">
+      <div class="brand"><img src="../assets/icons/els_app.png" alt="Emendate LedgerSync logo"><div><h1>Emendate LedgerSync Privacy Policy</h1><p>How your data is handled in the desktop application</p></div></div>
+      <button class="menu-btn" id="menuBtn">Menu</button><button class="toggle" id="themeBtn">Dark</button>
+      <nav class="nav" id="topNav"><a href="index.html">Home</a><a href="eula.html">EULA</a><a href="privacy.html">Privacy</a><a href="disconnect.html">Disconnect</a></nav>
+    </header>
+
+    <main class="doc">
+      <h2>Privacy Policy</h2><p class="meta"><strong>Last Updated:</strong> April 13, 2026</p>
+      <h2>1. Core Model</h2><p>Emendate LedgerSync is a desktop application. It runs locally on your computer and does not use an Emendate cloud backend for data processing.</p>
+      <h2>2. Data We Do Not Collect</h2><ul><li>Personal identity data</li><li>Excel file contents for external analytics</li><li>Telemetry, ad tracking, or usage profiling</li><li>IP-based analytics for product behavior tracking</li></ul>
+      <h2>3. Local Data Storage</h2><h3>3.1 Local SQLite Database</h3><ul><li>File: <code>Emendate_LedgerSync.sqlite3</code></li><li>Location: <code>%APPDATA%\&lt;install-folder-name&gt;\</code></li><li>Contains settings, encrypted credentials, company mappings, and OAuth tokens</li></ul>
+      <h3>3.2 Log File</h3><ul><li>File: <code>Emendate_LedgerSync.log</code></li><li>Purpose: diagnostics and troubleshooting</li></ul>
+      <h3>3.3 Excel Files</h3><ul><li>Source Excel files remain on your device</li><li>Only selected import payloads are sent to QuickBooks APIs</li></ul>
+      <h2>4. Data Flow</h2><ul><li>Desktop app authenticates directly with QuickBooks OAuth</li><li>Desktop app sends selected bill/invoice payloads directly to QuickBooks APIs</li><li>No intermediary Emendate server is used in this flow</li></ul>
+      <h2>5. Third-Party Service</h2><p>QuickBooks Online (Intuit) is a required third-party API provider. Data sent to QuickBooks is governed by Intuit policies and terms.</p>
+      <h2>6. Security Notes</h2><ul><li>Credentials and tokens are stored locally and encrypted in the app database.</li><li>Protect your machine account, filesystem access, and backups.</li><li>Revoke app access from QuickBooks if needed.</li></ul>
+      <h2>7. Data Removal</h2><p>To clear local app data, close the app and remove:</p><ul><li><code>Emendate_LedgerSync.sqlite3</code></li><li><code>Emendate_LedgerSync.sqlite3-shm</code> (if present)</li><li><code>Emendate_LedgerSync.sqlite3-wal</code> (if present)</li></ul>
+      <h2>8. Changes To This Policy</h2><p>We may revise this document as product behavior changes. The date above reflects the latest revision.</p>
+      <div class="summary"><strong>Summary:</strong> Emendate LedgerSync is designed as a local-first desktop tool. Your data stays on your machine except the records you explicitly send to QuickBooks.</div>
+      <p class="meta footer-meta">&copy; 2026 Emendate LedgerSync. All rights reserved. · <a class="support-link" href="https://github.com/dmistryX/emendate-ledgersync/issues">Contact Support</a></p>
+    </main>
+  </div>
+  <script>
+    const root=document.documentElement,themeBtn=document.getElementById('themeBtn');
+    const saved=localStorage.getItem('els-theme')||'light'; if(saved==='dark'){root.setAttribute('data-theme','dark');themeBtn.textContent='Light';}
+    themeBtn.addEventListener('click',()=>{const dark=root.getAttribute('data-theme')==='dark'; if(dark){root.removeAttribute('data-theme');localStorage.setItem('els-theme','light');themeBtn.textContent='Dark';} else {root.setAttribute('data-theme','dark');localStorage.setItem('els-theme','dark');themeBtn.textContent='Light';}});
+    const menuBtn=document.getElementById('menuBtn'),topNav=document.getElementById('topNav'); menuBtn.addEventListener('click',()=>topNav.classList.toggle('open'));
+  </script>
 </body>
 </html>
+

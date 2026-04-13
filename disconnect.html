@@ -1,85 +1,36 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disconnect Guide - QuickBooks Bill Importer</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            line-height: 1.6;
-            color: #333;
-        }
-        h1 { color: #2ca01c; border-bottom: 3px solid #2ca01c; padding-bottom: 10px; }
-        h2 { color: #0077c5; margin-top: 30px; }
-        .method {
-            background: #f9f9f9;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-            border-left: 4px solid #2ca01c;
-        }
-        ol { padding-left: 20px; }
-        li { margin: 10px 0; }
-        code { background: #e0e0e0; padding: 2px 6px; border-radius: 3px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disconnect Guide - Emendate LedgerSync</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1>How to Disconnect QuickBooks Bill Importer</h1>
-    
-    <p>You can disconnect the application from your QuickBooks account using either method below:</p>
-    
-    <div class="method">
-        <h2>Method 1: Via QuickBooks Online (Recommended)</h2>
-        <ol>
-            <li>Log into your QuickBooks Online account</li>
-            <li>Click the <strong>⚙ Settings</strong> icon in the top right</li>
-            <li>Select <strong>Apps</strong> from the menu</li>
-            <li>Click <strong>Manage apps</strong></li>
-            <li>Find <strong>QuickBooks Bill Importer</strong> in the list</li>
-            <li>Click <strong>Disconnect</strong></li>
-            <li>Confirm the disconnection</li>
-        </ol>
-        <p><strong>Result:</strong> The application will no longer have access to your QuickBooks data.</p>
-    </div>
-    
-    <div class="method">
-        <h2>Method 2: Delete Local Token File</h2>
-        <ol>
-            <li>Navigate to the application folder on your computer</li>
-            <li>Find the file named: <code>qbo_tokens.json</code></li>
-            <li>Delete this file</li>
-            <li>Restart the application</li>
-        </ol>
-        <p><strong>Result:</strong> The application will show as disconnected and require re-authentication.</p>
-    </div>
-    
-    <div class="method">
-        <h2>Complete Removal</h2>
-        <p>To completely remove the application:</p>
-        <ol>
-            <li>Disconnect using Method 1 above</li>
-            <li>Delete the application folder from your computer</li>
-            <li>Delete these files if they exist:
-                <ul>
-                    <li><code>config.json</code></li>
-                    <li><code>qbo_tokens.json</code></li>
-                    <li><code>quickbooks_importer.log</code></li>
-                </ul>
-            </li>
-        </ol>
-    </div>
-    
-    <div style="background: #fff3cd; padding: 15px; border-radius: 5px; margin-top: 30px;">
-        <strong>Note:</strong> After disconnecting, the application will no longer be able to access your 
-        QuickBooks data. Your Excel files and any data stored locally remain on your computer.
-    </div>
-    
-    <p style="margin-top: 30px; text-align: center;">
-        <a href="index.html" style="color: #2ca01c;">← Back to Home</a>
-    </p>
+<body class="page-disconnect">
+  <div class="wrap">
+    <header class="top">
+      <div class="brand"><img src="../assets/icons/els_app.png" alt="Emendate LedgerSync logo"><div><h1>Disconnect Emendate LedgerSync</h1><p>Two safe ways to revoke local and remote access</p></div></div>
+      <button class="menu-btn" id="menuBtn">Menu</button><button class="toggle" id="themeBtn">Dark</button>
+      <nav class="nav" id="topNav"><a href="index.html">Home</a><a href="eula.html">EULA</a><a href="privacy.html">Privacy</a><a href="disconnect.html">Disconnect</a></nav>
+    </header>
+
+    <section class="hero"><h2>Disconnect In A Controlled Way</h2><p>You can disconnect from QuickBooks Online and also clear local app data used by the desktop client.</p></section>
+
+    <section class="grid">
+      <article class="card"><h3>Method 1: QuickBooks Online (Recommended)</h3><p>This revokes app access directly from your QuickBooks account.</p><ol><li>Log into QuickBooks Online.</li><li>Open <strong>Settings</strong> in the top-right menu.</li><li>Go to <strong>Apps</strong> then <strong>Manage apps</strong>.</li><li>Find <strong>Emendate LedgerSync</strong>.</li><li>Click <strong>Disconnect</strong> and confirm.</li></ol></article>
+      <article class="card"><h3>Method 2: Remove Local App Data</h3><p>Use this to force local sign-out/reset on your desktop app.</p><ol><li>Close Emendate LedgerSync.</li><li>Open <code>%APPDATA%\&lt;install-folder-name&gt;\</code>.</li><li>Delete <code>Emendate_LedgerSync.sqlite3</code>.</li><li>If present, also delete <code>Emendate_LedgerSync.sqlite3-shm</code> and <code>Emendate_LedgerSync.sqlite3-wal</code>.</li><li>Reopen the application.</li></ol></article>
+      <article class="card full-span"><h3>Complete Removal Checklist</h3><ol><li>Disconnect from QuickBooks (Method 1).</li><li>Uninstall the desktop app.</li><li>Remove local files from <code>%APPDATA%\&lt;install-folder-name&gt;\</code> if you want a full cleanup:</li></ol><ul><li><code>Emendate_LedgerSync.sqlite3</code></li><li><code>Emendate_LedgerSync.sqlite3-shm</code></li><li><code>Emendate_LedgerSync.sqlite3-wal</code></li><li><code>Emendate_LedgerSync.log</code></li></ul></article>
+    </section>
+
+    <div class="warn"><strong>Note:</strong> Disconnecting removes app access to QuickBooks. It does not delete records already imported into QuickBooks.</div>
+
+    <footer class="footer"><p>&copy; 2026 Emendate LedgerSync. All rights reserved. · <a href="https://github.com/dmistryX/emendate-ledgersync/issues">Contact Support</a></p></footer>
+  </div>
+  <script>
+    const root=document.documentElement,themeBtn=document.getElementById('themeBtn');
+    const saved=localStorage.getItem('els-theme')||'light'; if(saved==='dark'){root.setAttribute('data-theme','dark');themeBtn.textContent='Light';}
+    themeBtn.addEventListener('click',()=>{const dark=root.getAttribute('data-theme')==='dark'; if(dark){root.removeAttribute('data-theme');localStorage.setItem('els-theme','light');themeBtn.textContent='Dark';} else {root.setAttribute('data-theme','dark');localStorage.setItem('els-theme','dark');themeBtn.textContent='Light';}});
+    const menuBtn=document.getElementById('menuBtn'),topNav=document.getElementById('topNav'); menuBtn.addEventListener('click',()=>topNav.classList.toggle('open'));
+  </script>
 </body>
 </html>

@@ -1,166 +1,41 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>EULA — QuickBooks Bill Importer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
-  <style>body{background:#f6f8fa;padding:32px} .markdown-body{box-sizing:border-box;max-width:900px;margin:0 auto;background:#fff;padding:48px;border-radius:6px;box-shadow:0 1px 3px rgba(27,31,35,.04)}</style>
+  <title>EULA - Emendate LedgerSync</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<article class="markdown-body" id="content"></article>
-<script id="md" type="text/plain">
-# End-User License Agreement (EULA)
+<body class="page-eula">
+  <div class="wrap">
+    <header class="top">
+      <div class="brand"><img src="../assets/icons/els_app.png" alt="Emendate LedgerSync logo"><div><h1>Emendate LedgerSync EULA</h1><p>End-User License Agreement</p></div></div>
+      <button class="menu-btn" id="menuBtn">Menu</button><button class="toggle" id="themeBtn">Dark</button>
+      <nav class="nav" id="topNav"><a href="index.html">Home</a><a href="eula.html">EULA</a><a href="privacy.html">Privacy</a><a href="disconnect.html">Disconnect</a></nav>
+    </header>
 
-**Last Updated:** February 12, 2026
-
-## Agreement
-
-This End-User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and the application provider for the QuickBooks Bill Importer software application ("Application").
-
-By installing, copying, or otherwise using the Application, you agree to be bound by the terms of this EULA.
-
-## License Grant
-
-The Application provider grants you a revocable, non-exclusive, non-transferable, limited license to download, install, and use the Application solely for your personal or internal business purposes strictly in accordance with the terms of this EULA.
-
-## Restrictions
-
-You agree not to, and you will not permit others to:
-
-- License, sell, rent, lease, assign, distribute, transmit, host, outsource, disclose or otherwise commercially exploit the Application
-- Modify, make derivative works of, disassemble, decrypt, reverse compile or reverse engineer any part of the Application
-- Remove, alter or obscure any proprietary notice on the Application
-
-## Your Data
-
-### Data Ownership
-- You retain all rights to your data
-- The Application processes data locally on your machine
-- No data is transmitted to third parties except QuickBooks (via their official API)
-
-### Data Privacy
-- Application stores configuration locally in `config.json`
-- OAuth tokens stored locally in `qbo_tokens.json`
-- Excel files remain on your local machine
-- Application does not collect, store, or transmit personal data to any server
-
-### QuickBooks Data
-- Data sent to QuickBooks is subject to Intuit's Privacy Policy
-- Application only sends data you explicitly import
-- You control what data is sent to QuickBooks
-
-## Third-Party Services
-
-### QuickBooks Integration
-- This Application integrates with QuickBooks Online via official Intuit APIs
-- Use of QuickBooks Online is subject to Intuit's Terms of Service
-- You must have a valid QuickBooks Online subscription
-
-### Your Responsibilities
-- Maintain security of your QuickBooks credentials
-- Ensure accuracy of data before importing
-- Backup your data regularly
-- Use appropriate sandbox/production environments
-
-## Disclaimer of Warranties
-
-THE APPLICATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
-
-THE APPLICATION PROVIDER DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
-- Warranties of merchantability
-- Fitness for a particular purpose
-- Non-infringement
-
-THE APPLICATION PROVIDER DOES NOT WARRANT THAT:
-- The Application will meet your requirements
-- The Application will be uninterrupted or error-free
-- Defects will be corrected
-
-## Limitation of Liability
-
-TO THE MAXIMUM EXTENT PERMITTED BY LAW:
-
-THE APPLICATION PROVIDER SHALL NOT BE LIABLE FOR ANY:
-- Indirect, incidental, special, consequential, or punitive damages
-- Loss of profits, revenue, data, or use
-- Business interruption
-- Errors or omissions in imported data
-
-EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-
-YOUR SOLE REMEDY IS TO DISCONTINUE USE OF THE APPLICATION.
-
-## Data Import Responsibility
-
-YOU ARE SOLELY RESPONSIBLE FOR:
-- Verifying accuracy of data before importing
-- Testing imports in sandbox environment first
-- Reviewing imported bills in QuickBooks
-- Maintaining backups of your data
-- Correcting any errors in imported data
-
-THE APPLICATION PROVIDER IS NOT RESPONSIBLE FOR:
-- Incorrect data in Excel files
-- Duplicate bill imports
-- Incorrect vendor or account mappings
-- Financial impacts of imported data
-
-## Intellectual Property
-
-The Application and all rights, including intellectual property rights, are owned by the Application provider. This EULA does not grant you any rights to trademarks or service marks.
-
-## Termination
-
-This EULA is effective until terminated. Your rights under this EULA will terminate automatically without notice if you fail to comply with any term.
-
-Upon termination:
-- You must cease all use of the Application
-- Delete all copies of the Application
-- Destroy all documentation
-
-## Changes to EULA
-
-The Application provider reserves the right to modify this EULA at any time. Continued use of the Application after changes constitutes acceptance of the new terms.
-
-## Governing Law
-
-This EULA shall be governed by and construed in accordance with the laws of your jurisdiction, without regard to conflict of law principles.
-
-## Support
-
-Support is provided on a best-effort basis. No guaranteed response times or support levels are provided.
-
-## Open Source Components
-
-This Application may include open source software components. Such components are licensed under their respective open source licenses:
-- Python (PSF License)
-- Flask (BSD License)
-- openpyxl (MIT License)
-- ttkbootstrap (MIT License)
-- requests (Apache License 2.0)
-
-## Acknowledgment
-
-BY INSTALLING OR USING THE APPLICATION, YOU ACKNOWLEDGE THAT:
-- You have read this EULA
-- You understand this EULA
-- You agree to be bound by its terms and conditions
-
-If you do not agree to the terms of this EULA, do not install or use the Application.
-
-## Contact
-
-For questions about this EULA, please contact the Application provider.
-
----
-
-**© 2026 Emendate QB Bill Importer. All rights reserved.**
-</script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
-  const md = document.getElementById('md').textContent;
-  document.getElementById('content').innerHTML = marked.parse(md);
-</script>
+    <main class="doc">
+      <h2>End-User License Agreement (EULA)</h2><p class="meta"><strong>Last Updated:</strong> April 13, 2026</p>
+      <h2>1. Agreement</h2><p>This EULA is a legal agreement between you and the provider of Emendate LedgerSync (the "Application"). By installing or using the Application, you agree to this EULA.</p>
+      <h2>2. License Grant</h2><p>You are granted a revocable, non-exclusive, non-transferable license to install and use the Application for personal or internal business purposes.</p>
+      <h2>3. Restrictions</h2><ul><li>No resale, sublicensing, or commercial redistribution without permission.</li><li>No reverse engineering, disassembly, or derivative works outside applicable law.</li><li>No removal of copyright or proprietary notices.</li></ul>
+      <h2>4. Data And Privacy</h2><ul><li>Application settings and tokens are stored locally in <code>Emendate_LedgerSync.sqlite3</code>.</li><li>Local app data directory is <code>%APPDATA%\&lt;install-folder-name&gt;\</code>.</li><li>Excel files remain local unless you explicitly import data into QuickBooks.</li><li>No dedicated Emendate cloud processing server is required for core import flow.</li></ul>
+      <h2>5. QuickBooks Integration</h2><ul><li>The Application integrates with QuickBooks Online APIs.</li><li>Use of QuickBooks is governed by Intuit terms/policies.</li><li>You are responsible for credential security and record validation before import.</li></ul>
+      <h2>6. Disclaimer Of Warranties</h2><p>THE APPLICATION IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
+      <h2>7. Limitation Of Liability</h2><p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE PROVIDER IS NOT LIABLE FOR INDIRECT OR CONSEQUENTIAL DAMAGES, DATA LOSS, BUSINESS INTERRUPTION, OR IMPORT SIDE-EFFECTS.</p>
+      <h2>8. Import Responsibility</h2><ul><li>Validate source data before import.</li><li>Test workflows in sandbox first where possible.</li><li>Review imported bills/invoices inside QuickBooks.</li></ul>
+      <h2>9. Termination</h2><p>This EULA terminates automatically if you violate its terms. Upon termination, discontinue use and remove copies of the Application.</p>
+      <h2>10. Governing Law</h2><p>This EULA is governed by applicable local law in your jurisdiction unless otherwise required by law.</p>
+      <h2>11. Open Source Components</h2><p>The Application may include open-source libraries under their respective licenses.</p>
+      <div class="note"><strong>Acknowledgment:</strong> By installing or using the Application, you confirm that you have read and agree to this EULA.</div>
+      <p class="meta footer-meta">&copy; 2026 Emendate LedgerSync. All rights reserved. · <a class="support-link" href="https://github.com/dmistryX/emendate-ledgersync/issues">Contact Support</a></p>
+    </main>
+  </div>
+  <script>
+    const root=document.documentElement,themeBtn=document.getElementById('themeBtn');
+    const saved=localStorage.getItem('els-theme')||'light'; if(saved==='dark'){root.setAttribute('data-theme','dark');themeBtn.textContent='Light';}
+    themeBtn.addEventListener('click',()=>{const dark=root.getAttribute('data-theme')==='dark'; if(dark){root.removeAttribute('data-theme');localStorage.setItem('els-theme','light');themeBtn.textContent='Dark';} else {root.setAttribute('data-theme','dark');localStorage.setItem('els-theme','dark');themeBtn.textContent='Light';}});
+    const menuBtn=document.getElementById('menuBtn'),topNav=document.getElementById('topNav'); menuBtn.addEventListener('click',()=>topNav.classList.toggle('open'));
+  </script>
 </body>
 </html>
